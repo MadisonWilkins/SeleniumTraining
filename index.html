@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			iframe{
+				display: none;
+			}
+		</style>
+		<script>
+			function check() {
+				var leave = document.forms["textForm"]["leave"].value;
+				var x = document.forms["textForm"]["place"].value;
+				var p1 = document.forms["textForm"]["phrase1"].checked;
+				var p2 = document.forms["textForm"]["phrase2"].checked;
+				var location = document.forms["textForm"]["location"].value;
+				if (p1)
+					x = "tell me about " + x;
+				if (p2)
+					x = x + " in " + location;
+				document.getElementById("text").innerHTML = x;
+				if (leave == "yes")
+				{
+					window.open('http://google.com/search?q='+x);
+					return true;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>This is for testing</h1>
+		<form name="textForm" onsubmit="return check()" target="frame">
+			<input type="radio" name="leave" value="yes" id="r1"> Leave Page <br>
+			<input type="radio" name="leave" value="no"  id="r2"checked> Stay Here
+			<br>
+			<input type="text" id="bar" name="place">
+			<input type="submit" id="button">
+			<br>
+			<input type="checkbox" name="phrase1" value="1" id="p1">Show phrase 1<br>
+			<input type="checkbox" name="phrase2" value="2" id="p2">Show phrase 2<br>
+			<select name="location" id="drop">
+				<option value="blacksburg">Blacksburg</option>
+				<option value="arlington">Arlington</option>
+				<option value="wilmington">Wilmington</option>
+			</select>
+		</form>
+		<p id="text">
+		</p>
+		<iframe name="frame"></iframe>
+	</body>
+</html>
