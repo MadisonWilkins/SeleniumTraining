@@ -105,7 +105,6 @@ public class App
     	// add redirect
     	radio1.click();
     	inputBar.submit();
-    	String winHandleBefore = driver.getWindowHandle();
         for(String winHandle : driver.getWindowHandles()){
             driver.switchTo().window(winHandle);
         }
