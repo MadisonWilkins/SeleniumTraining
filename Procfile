@@ -1,1 +1,1 @@
-worker: target/App -Dhttp.port=${PORT} ${JAVA_OPTS}
+worker:  java -cp target/app-1.0-SNAPSHOT.jar
