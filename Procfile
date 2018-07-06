@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* HelloWorld
+web: target/App -Dhttp.port=${PORT} ${JAVA_OPTS}
